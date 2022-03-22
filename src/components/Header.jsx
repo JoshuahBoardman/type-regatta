@@ -4,9 +4,9 @@ import { faSailboat } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
   return (
-    <header className='navbar navbar-expand-lg nav-primary bg-primary'>
+    <header className='navbar navbar-expand-lg nav-primary bg-primary shadow-sm'>
         <div className="d-flex container-xxl justify-content-center align-items-center">
-            <span class="navbar-brand mb-0 text-dark fw-bold fs-3">
+            <span className="navbar-brand mb-0 text-dark fw-bold fs-3">
             <FontAwesomeIcon icon={faSailboat}/>
                 Type Regatta
             </span>

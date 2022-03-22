@@ -4,7 +4,7 @@ const Timer = () => {
   return (
     <div className="container-md pb-5">
         <div className="row justify-content-center align-items-center">
-            <div className="col-sm-3 text-center bg-light py-1 rounded-pill">
+            <div className="col-11 col-sm-3 text-center bg-light py-1 rounded-pill shadow-sm">
                 <div className='text-dark fs-4'>
                 Timer: <span>5:00</span></div>
             </div>
