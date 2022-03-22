@@ -14,32 +14,37 @@ function App() {
   <>
     <Header />
 
-    <main className="bg-secondary">
+    <main>
       {/* Game Description */}
-      <div className="container-md">
-        <div className="row justify-content-center align-items-center">
-          <div className="col-11 col-md-8 text-start my-5">
-            <h1 className="display-5 text-dark">Welcom to Type Regatta</h1>
-            <p className="lead mt-2 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam cum vero consequatur officia delectus sint expedita maxime debitis illo sunt?</p>
+      <div className="bg-secondary">
+
+        <div className="container-md">
+            <div className="row justify-content-center align-items-center">
+              <div className="col-11 col-md-8 text-start my-5">
+                <h1 className="display-5 text-dark">Welcome to Type Regatta</h1>
+                <p className="lead mt-2 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam cum vero consequatur officia delectus sint expedita maxime debitis illo sunt?</p>
+              </div>
+            </div>
           </div>
-        </div>
+          <Timer />
+          <ProgressDisplay />
       </div>
 
-      <Timer />
-
-      <ProgressDisplay />
+      <div className="bg-dark pt-5">
 
       <div className="container-md pb-5">
-        <div className="row justify-content-center align-items-center">
-          <div className="col-11 col-md-8 mb-5 text-center">
+          <div className="row justify-content-center align-items-center">
+            <div className="col-11 col-md-8 mb-5 text-center">
 
-        <TextDisplay />
-        <TextInput />
-        <Button />
+          <TextDisplay />
+          <TextInput />
+          <Button />
 
+            </div>
           </div>
         </div>
       </div>
+
 
     </main>
 
