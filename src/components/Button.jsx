@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Button = () => {
+const Button = ({ setGameState, newGameState, text, backgroundColor, textColor }) => {
   return (
-    <button type='button' className='btn btn-primary text-light fw-bold shadow-sm'> Start Regatta </button>
+    <button type='button' className={`btn ${backgroundColor} ${textColor} fw-bold shadow-sm`} onClick={() => setGameState(newGameState) }>{text}</button>
   )
 }
 
