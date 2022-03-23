@@ -3,8 +3,8 @@ import Button from './Button'
 
 const GameFinishedDisplay = ({ setGameState }) => {
   return (
-    <div className='my-5 text-center '>
-        <h3 className="text-primary h1">Regatta Results</h3>
+    <div className='mb-5 mt-3 text-center '>
+        <h3 className="text-dark h1">Regatta Results</h3>
         <div className='mt-3 mb-4 fs-5'>
             <div className='text-light'>
             <span className='fw-bold'>Time Taken:</span> <span>1:20</span>

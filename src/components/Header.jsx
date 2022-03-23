@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <header className='navbar navbar-expand-lg nav-primary bg-primary shadow-sm'>
         <div className="d-flex container-xxl justify-content-center align-items-center">
-            <span className="navbar-brand mb-0 text-dark fw-bold fs-3">
-            <FontAwesomeIcon icon={faSailboat}/>
+            <span className="navbar-brand mb-0 text-dark fw-bold fs-4">
+                <span className='fs-3'><FontAwesomeIcon icon={faSailboat}/> </span>
                 Type Regatta
             </span>
         </div>
