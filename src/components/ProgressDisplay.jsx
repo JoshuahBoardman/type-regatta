@@ -6,11 +6,11 @@ const ProgressDisplay = () => {
   return (
     <div className="container-md pb-5">
       <div className="row align-items-center justify-content-center">
-        <div className="col-11 col-md-8 col-lg-7">
-          <div className="border-bottom border-dark border-2 fs-1 text-dark">
+        <div className="col-11">
+          <div className="border-bottom border-dark border-2 fs-1 text-dark text-start">
             <FontAwesomeIcon icon={faSailboat}/>
           </div>
-          <div className="col-md-2 mt-1">
+          <div className="col-4 mt-1 text-start">
             <div className="text-dark fs-6">
               WPM: <span>56</span>
             </div>

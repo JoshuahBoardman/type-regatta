@@ -16,8 +16,8 @@ const TextInput = () => {
         <label htmlFor="textInput" className='form-label visually-hidden'>Text Input</label>
         <div className="input-group rounded shadow-sm">
             <input type="text" id='textInput' className='form-control bg-light text-dark ' placeholder='Type from the passage above...'/>
-            <span className="input-group-text bg-secondary">
-                <span className="hoverInfo text-" data-bs-placement="bottom" title="Enter text from the passage about">
+            <span className="input-group-text bg-dark">
+                <span className="hoverInfo text-light" data-bs-placement="bottom" title="Enter text from the passage about">
                 <FontAwesomeIcon icon={faQuestion} />
                 </span>
             </span>
