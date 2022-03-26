@@ -6,12 +6,15 @@ import TextInput from './TextInput'
 import Button from './Button'
 
 const GameDisplay = ({ setGameState, quote }) => {
-  const [quoteAsArray, setQuoteAsArray] = useState(quote.split(' '));
+  const [quoteAsArray] = useState(quote.split(' '));
   const [quoteArrayIndex, setQuoteArrayIndex] = useState(0);
   const [inputValue, setInputValue] = useState('');
+  const [progressBarValue, setProgressBarValue] = useState(0);
 
   useEffect(() => {
     if (quoteArrayIndex === quoteAsArray.length){
+      //TODO: store the wpm
+      //TODO: store the time - time taken
       setGameState(3)
     }
   })
@@ -24,6 +27,7 @@ const GameDisplay = ({ setGameState, quote }) => {
     if(inputValue === quoteAsArray[quoteArrayIndex]) {
       console.log("THIS IS CORRECT")
       setQuoteArrayIndex(prevIndex => prevIndex + 1)
+      setProgressBarValue(prevValue => prevValue + (100/quoteAsArray.length))
       setInputValue("");
       return
     }
@@ -34,7 +38,7 @@ const GameDisplay = ({ setGameState, quote }) => {
     <>
       <h3 className='text-dark mb-5 h2'>Type The Passage Below</h3>
       <Timer setGameState={setGameState} />
-      <ProgressDisplay />
+      <ProgressDisplay progressBarValue={progressBarValue}/>
       <TextDisplay quote={quoteAsArray.join(" ")} />
       <TextInput inputValue={inputValue} setInputValue={setInputValue} doesInputEqualQuoteArrayValue={doesInputEqualQuoteArrayValue}/>
       <Button setGameState={setGameState} newGameState={1}  text={"Restart Regatta"} backgroundColor="btn-primary" textColor="text-light"/>
