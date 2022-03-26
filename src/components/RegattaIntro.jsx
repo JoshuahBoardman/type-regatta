@@ -2,6 +2,8 @@ import React from 'react'
 import Button from './Button'
 
 const RegattaIntro = ( { setGameState }) => {
+
+
   return (
     <>
       <h1 className="display-4 text-dark text-center fw-bold">Welcome to Type Regatta</h1>
