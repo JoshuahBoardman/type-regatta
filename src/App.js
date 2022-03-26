@@ -10,6 +10,8 @@ import RegattaInfo from "./components/RegattaInfo";
 function App() {
   const [gameState, setGameState] = useState(0);
   const [quote, setQuote] = useState("");
+  const [timeTaken, setTimeTaken] = useState(0);
+  const [wordsPerMinute, setWordsPerMinute] = useState(0);
 
 
   useEffect(() => {
@@ -46,9 +48,9 @@ function App() {
       case 1:
         return <GameLoadingDisplay setGameState={setGameState} />
       case 2:
-        return  <GameDisplay setGameState={setGameState} quote={quote} />
+        return  <GameDisplay setGameState={setGameState} quote={quote} setTimeTaken={setTimeTaken} wordsPerMinute={wordsPerMinute} setWordsPerMinute={setWordsPerMinute} />
       case 3:
-        return <GameFinishedDisplay setGameState={setGameState} />
+        return <GameFinishedDisplay setGameState={setGameState} timeTaken={timeTaken} wordsPerMinute={wordsPerMinute}/>
     }
   }
 

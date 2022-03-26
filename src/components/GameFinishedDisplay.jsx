@@ -1,16 +1,16 @@
 import React from 'react'
 import Button from './Button'
 
-const GameFinishedDisplay = ({ setGameState }) => {
+const GameFinishedDisplay = ({ setGameState, timeTaken, wordsPerMinute }) => {
   return (
     <div className='mb-5 mt-3 text-center '>
         <h3 className="text-dark h1">Regatta Results</h3>
         <div className='mt-3 mb-4 fs-5'>
             <div className='text-light'>
-            <span className='fw-bold'>Time Taken:</span> <span>1:20</span>
+            <span className='fw-bold'>Time Taken:</span> <span>{timeTaken}</span> secs
         </div>
             <div className='text-light'>
-                <span className='fw-bold'>WPM:</span> <span>56</span>
+                <span className='fw-bold'>WPM:</span> <span>{wordsPerMinute}</span>
             </div>
         </div>
         <div className='d-flex gap-3 mt-5 justify-content-center align-items-center'>

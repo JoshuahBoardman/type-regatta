@@ -4,17 +4,27 @@ import Timer from "./Timer";
 import TextDisplay from './TextDisplay'
 import TextInput from './TextInput'
 import Button from './Button'
+import { type } from '@testing-library/user-event/dist/type';
 
-const GameDisplay = ({ setGameState, quote }) => {
+const GameDisplay = ({ setGameState, quote, setTimeTaken, wordsPerMinute, setWordsPerMinute }) => {
+  const startingTime = +300
+
   const [quoteAsArray] = useState(quote.split(' '));
   const [quoteArrayIndex, setQuoteArrayIndex] = useState(0);
   const [inputValue, setInputValue] = useState('');
+  const [time, setTime] = useState(startingTime);
   const [progressBarValue, setProgressBarValue] = useState(0);
+  
+  useEffect(() => {
+    setTimeTaken(startingTime - time);
+  })
+
+  useEffect(() => {
+    setWordsPerMinute(parseInt(quoteArrayIndex/((startingTime - time)/60)));
+  })
 
   useEffect(() => {
     if (quoteArrayIndex === quoteAsArray.length){
-      //TODO: store the wpm
-      //TODO: store the time - time taken
       setGameState(3)
     }
   })
@@ -37,8 +47,8 @@ const GameDisplay = ({ setGameState, quote }) => {
   return (
     <>
       <h3 className='text-dark mb-5 h2'>Type The Passage Below</h3>
-      <Timer setGameState={setGameState} />
-      <ProgressDisplay progressBarValue={progressBarValue}/>
+      <Timer setGameState={setGameState} time={time} setTime={setTime} />
+      <ProgressDisplay progressBarValue={progressBarValue} wordsPerMinute={wordsPerMinute}/>
       <TextDisplay quote={quoteAsArray.join(" ")} />
       <TextInput inputValue={inputValue} setInputValue={setInputValue} doesInputEqualQuoteArrayValue={doesInputEqualQuoteArrayValue}/>
       <Button setGameState={setGameState} newGameState={1}  text={"Restart Regatta"} backgroundColor="btn-primary" textColor="text-light"/>

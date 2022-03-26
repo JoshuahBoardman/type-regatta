@@ -2,7 +2,15 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSailboat } from '@fortawesome/free-solid-svg-icons'
 
-const ProgressDisplay = ({ progressBarValue }) => {
+const ProgressDisplay = ({ progressBarValue, wordsPerMinute }) => {
+
+  function displayWPM() {
+    if(isNaN(wordsPerMinute)) {
+      return 0
+    }
+    return wordsPerMinute
+  }
+
   return (
     <div className="container-md pb-5">
       <div className="row align-items-center justify-content-center">
@@ -17,7 +25,7 @@ const ProgressDisplay = ({ progressBarValue }) => {
           </div> */}
           <div className="col-4 mt-1 text-start">
             <div className="text-dark fs-6">
-              WPM: <span>56</span>
+              WPM: <span>{displayWPM()}</span>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-const Timer = ({ setGameState }) => {
-    const [time, setTime] = useState(300)
+const Timer = ({ setGameState, time, setTime}) => {
+
 
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Timer = ({ setGameState }) => {
         clearInterval(interval);
       }
     }, 1000)
-  }, [])
+  }, [setTime])
 
   useEffect(() => {
     if (time === 0) {
