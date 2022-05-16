@@ -4,7 +4,6 @@ import Timer from "./Timer";
 import TextDisplay from './TextDisplay'
 import TextInput from './TextInput'
 import Button from './Button'
-import { type } from '@testing-library/user-event/dist/type';
 
 const GameDisplay = ({ setGameState, quote, setTimeTaken, wordsPerMinute, setWordsPerMinute }) => {
   const startingTime = +300
