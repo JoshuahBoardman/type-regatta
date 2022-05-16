@@ -13,79 +13,91 @@ function App() {
   const [timeTaken, setTimeTaken] = useState(0);
   const [wordsPerMinute, setWordsPerMinute] = useState(0);
 
-
   useEffect(() => {
-    gameState === 1 && updateQuoteState()
-  })
+    gameState === 1 && updateQuoteState();
+  });
 
-  const API_URL = "http://api.quotable.io/random?minLength=200"
+  const API_URL = "http://api.quotable.io/random?minLength=200";
 
   async function fetchRandomQuote() {
     try {
       const response = await fetch(API_URL);
-      if(response.status === 200) {
+      if (response.status === 200) {
         const data = await response.json();
-        return data
+        return data;
       }
-    }
-    catch(err) {
-      console.error(err)
+    } catch (err) {
+      console.error(err);
     }
   }
 
-    async function updateQuoteState() {
-    const quoteData = await fetchRandomQuote()
-    const quote = quoteData.content
-    setQuote(quote)
+  async function updateQuoteState() {
+    const quoteData = await fetchRandomQuote();
+    const quote = quoteData.content;
+    setQuote(quote);
     setGameState(2);
-
   }
-    
+
   function renderByGamestate() {
-    switch(gameState) {
+    switch (gameState) {
       case 0:
-        return  <RegattaIntro setGameState={setGameState} />
+        return <RegattaIntro setGameState={setGameState} />;
       case 1:
-        return <GameLoadingDisplay setGameState={setGameState} />
+        return <GameLoadingDisplay setGameState={setGameState} />;
       case 2:
-        return  <GameDisplay setGameState={setGameState} quote={quote} setTimeTaken={setTimeTaken} wordsPerMinute={wordsPerMinute} setWordsPerMinute={setWordsPerMinute} />
+        return (
+          <GameDisplay
+            setGameState={setGameState}
+            quote={quote}
+            setTimeTaken={setTimeTaken}
+            wordsPerMinute={wordsPerMinute}
+            setWordsPerMinute={setWordsPerMinute}
+          />
+        );
       case 3:
-        return <GameFinishedDisplay setGameState={setGameState} timeTaken={timeTaken} wordsPerMinute={wordsPerMinute}/>
+        return (
+          <GameFinishedDisplay
+            setGameState={setGameState}
+            timeTaken={timeTaken}
+            wordsPerMinute={wordsPerMinute}
+          />
+        );
+
+      default:
+      // do nothing
     }
   }
 
   return (
-  <>
-    <Header />
+    <>
+      <Header />
 
-    <main>
-      {/* Dynamic Section */}
-      <div className="bg-secondary py-4">
-        <div className="container-md">
+      <main>
+        {/* Dynamic Section */}
+        <div className="bg-secondary py-4">
+          <div className="container-md">
             <div className="row justify-content-center align-items-center my-5">
               <div className="col-11 col-md-8 text-center my-5">
                 {renderByGamestate()}
               </div>
             </div>
+          </div>
         </div>
-      </div>
 
-      {/* Game Info */}
-      <div className="bg-dark pt-5">
-        <div className="container-md pb-5">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-11 col-md-8 mb-5 text-center">
-            <RegattaInfo />
+        {/* Game Info */}
+        <div className="bg-dark pt-5">
+          <div className="container-md pb-5">
+            <div className="row justify-content-center align-items-center">
+              <div className="col-11 col-md-8 mb-5 text-center">
+                <RegattaInfo />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
-
-    </main>
-
-    <Footer />
-  </>
+      <Footer />
+    </>
   );
 }
 
