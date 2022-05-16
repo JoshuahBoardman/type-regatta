@@ -17,7 +17,7 @@ function App() {
     gameState === 1 && updateQuoteState();
   });
 
-  const API_URL = "http://api.quotable.io/random?minLength=200";
+  const API_URL = "https://api.quotable.io/random?minLength=200";
 
   async function fetchRandomQuote() {
     try {
