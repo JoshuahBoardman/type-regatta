@@ -17,13 +17,15 @@ function App() {
     gameState === 1 && updateQuoteState();
   });
 
-  const API_URL = "http://api.quotable.io/random?minLength=200";
+  const API_URL = "https://api.quotable.io/random?minLength=100";
 
   async function fetchRandomQuote() {
     try {
       const response = await fetch(API_URL);
+      console.log(response)
       if (response.status === 200) {
         const data = await response.json();
+        console.log(data);
         return data;
       }
     } catch (err) {
@@ -34,6 +36,7 @@ function App() {
   async function updateQuoteState() {
     const quoteData = await fetchRandomQuote();
     const quote = quoteData.content;
+    console.log(quote)
     setQuote(quote);
     setGameState(2);
   }
